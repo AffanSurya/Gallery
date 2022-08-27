@@ -1,0 +1,173 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+/* style */
+body {
+    font: 12px/24px 'montserrat', Arial, Helvetica, sans-serif;
+    background-color: rgb(203, 203, 203);
+    background-size: contain;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 50px 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px white;
+}
+
+.container {
+    width: 725px;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    padding:30px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    position: relative;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border: 5px solid rgb(60, 60, 60);
+    float: left;
+    margin-right: 15px;
+}
+
+.gallery li, .gallery li img, .gallery li span {
+    border-radius: 50%;
+}
+
+.gallery li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(225, 225, 225, 0.4);
+    position: absolute;
+    top: 35px;
+    text-align: center;
+    line-height: 120px;
+    color: rgb(193, 0, 0);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    opacity: 0;
+    transition: .3s;
+    transform: scale(0);
+}
+
+.gallery li a:hover span {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.clear {
+    clear: both;
+}
+
+/* overlay */
+.overlay {
+    width: 0;
+    height: 0;
+    text-align: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transition: .7s;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    padding: 100px 20px;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.784);
+}
+
+.gallery .overlay img {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.448);
+}
+
+.overlay:target img {
+    animation: zoom 1s;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -20px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    line-height: 10px;
+    padding: 3px;
+    opacity: 0;
+}
+
+.overlay:target .close {
+    animation: slidedown .5s .5s forwards;
+}
+
+.overlay:target .next, .overlay:target .prev {
+    animation: navi .5s .5s forwards;
+}
+
+/* navigasi */
+.next, .prev {
+    width: 150px;
+    height: 150px;
+    background-image: url(../image/right.png);
+    background-size: cover;
+    position: absolute;
+    top: 42%;
+    text-indent: -9999px;
+    opacity: 0;
+}
+
+.prev {
+    background-image: url(../image/left.png);
+    margin-left: -150px;
+}
+
+/* animasi */
+@keyframes zoom {
+    0% {
+        opacity: 0;
+        /* transform: scale(0); */
+    }
+
+    100% {
+        opacity: 1;
+        /* transform: scale(1); */
+    }
+}
+
+@keyframes slidedown {
+    0% {
+        opacity: 0;
+        margin-top: -50px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes navi {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
