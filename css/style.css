@@ -16,13 +16,18 @@ h1 {
 }
 
 .container {
-    width: 725px;
+    width: 800px;
     background-color: rgb(255, 255, 255);
     margin: auto;
-    padding:30px;
+    /* padding:30px; */
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, .1);
     border-radius: 5px;
     position: relative;
+    box-sizing: border-box;
+}
+
+.container .gallery {
+    display: flex;
 }
 
 .gallery li {
@@ -30,8 +35,7 @@ h1 {
     height: 120px;
     overflow: hidden;
     border: 5px solid rgb(60, 60, 60);
-    float: left;
-    margin-right: 15px;
+    margin: 15px;
 }
 
 .gallery li, .gallery li img, .gallery li span {
@@ -44,7 +48,7 @@ h1 {
     height: 120px;
     background-color: rgba(225, 225, 225, 0.4);
     position: absolute;
-    top: 35px;
+    top: 20px;
     text-align: center;
     line-height: 120px;
     color: rgb(193, 0, 0);
